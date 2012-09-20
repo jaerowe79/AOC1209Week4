@@ -67,6 +67,8 @@
         dateBtn.tag = DATE_BUTTON;
         dateBtn.frame = CGRectMake(10.0f, 170.0f, 100.0f, 35.0f);
         dateBtn.tintColor = [UIColor colorWithRed:0.275 green:0.835 blue:0.91 alpha:1] /*#46d5e8*/;
+        /*Add the text "Show Date" to the button*/
+
         [dateBtn setTitle:@"Show Date" forState:UIControlStateNormal];
         [dateBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:dateBtn];
@@ -117,11 +119,10 @@
         NSDate *date = [NSDate date];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         if (dateFormatter != nil)
-        {
+        {  /*formatting displayed date*/
             [dateFormatter setDateFormat:@"MMMM d, yyyy h:mm:s:a zzzz"];
             NSString* dateLabel = [dateFormatter stringFromDate:date];
             UIAlertView *dateAlertView = [[UIAlertView alloc]
-            /*Add the text "Show Date" to the button*/
                 initWithTitle:@"Date" message:dateLabel delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
             if(dateAlertView != nil)
